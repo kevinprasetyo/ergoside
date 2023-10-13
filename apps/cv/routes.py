@@ -4,6 +4,7 @@ from flask_login import login_required, current_user
 from jinja2 import TemplateNotFound
 from apps import db, login_manager
 import cv2
+from apps.cv.models import Cv
 
 
 
@@ -25,9 +26,12 @@ import cv2
 def laporan():
     if "status" in request.args:
         status = request.args.get('status')
+        kirim = Cv(status=status)
+        db.session.add(kirim)
+        db.session.commit()
+        flash("Berhasil tersimpan")
         return render_template('cv/laporan.html', status=status)
     return render_template('cv/laporan.html')
-
 
 @blueprint.route('/hasil/', methods=['GET', 'POST'])
 @login_required
