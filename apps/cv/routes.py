@@ -21,9 +21,25 @@ import cv2
 #         yield (b'--frame\r\n'
 #                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
-@blueprint.route('/laporan')
+@blueprint.route('/laporan', methods=['GET', 'POST'])
 def laporan():
+    if "status" in request.args:
+        status = request.args.get('status')
+        return render_template('cv/laporan.html', status=status)
     return render_template('cv/laporan.html')
+
+
+@blueprint.route('/hasil/', methods=['GET', 'POST'])
+@login_required
+def hasil():
+    if "hapus" in request.args:
+        id = request.args.get('hapus')
+        hasil = Hasil.query.filter_by(id=id).one()
+        email = hasil.email
+        db.session.delete(hasil)
+        db.session.commit()
+        flash("Berhasil dihapus")
+        return redirect(f'/hasil/{email}')
 
 # @blueprint.route('/video')
 # def video():
