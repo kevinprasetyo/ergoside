@@ -3,10 +3,13 @@
   <div class="navbar-wrapper">
     <div class="navbar-brand header-logo">
       <a href="/" class="b-brand">
-        <div class="b-bg">
-          <i class="feather icon-trending-up"></i>
-        </div>
-        <span class="b-title">PKM Ergonomi</span>
+        <img
+          src="{{ config.ASSETS_ROOT }}/images/logo.png"
+          alt="ErgoSide"
+          width="32"
+          height="32"
+        />
+        <span class="b-title">ErgoSide</span>
       </a>
       <a class="mobile-menu" id="mobile-collapse" href="javascript:"
         ><span></span
@@ -63,16 +66,7 @@
         <li class="nav-item pcoded-menu-caption">
           <label>Asesmen berbasis komputer</label>
         </li>
-        <li
-          data-username="form elements advance componant validation masking wizard picker select"
-          class="nav-item {% if 'sit' in segment %} active {% endif %}"
-        >
-          <a href="/sit" class="nav-link"
-            ><span class="pcoded-micon"
-              ><i class="feather icon-file-text"></i></span
-            ><span class="pcoded-mtext">Depan layar</span></a
-          >
-        </li>
+
         <li
           data-username="form elements advance componant validation masking wizard picker select"
           class="nav-item {% if 'samping' in segment %} active {% endif %}"

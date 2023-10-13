@@ -5,10 +5,7 @@ from jinja2 import TemplateNotFound
 from apps import db, login_manager
 import cv2
 
-@blueprint.route('/sit')
-@login_required
-def sit():
-    return render_template('cv/sit.html', segment='sit')
+
 
 # camera = cv2.VideoCapture(0)
 
