@@ -21,9 +21,9 @@ import cv2
 #         yield (b'--frame\r\n'
 #                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
-@blueprint.route('/samping')
-def samping():
-    return render_template('cv/samping.html', segment='samping')
+@blueprint.route('/laporan')
+def laporan():
+    return render_template('cv/laporan.html')
 
 # @blueprint.route('/video')
 # def video():
