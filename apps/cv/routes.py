@@ -31,7 +31,10 @@ def laporan():
         db.session.commit()
         flash("Berhasil tersimpan")
         return render_template('cv/laporan.html', status=status)
-    return render_template('cv/laporan.html')
+    else:
+        status = Cv.query.order_by(Cv.id.desc()).first()
+        hasil = status.status
+        return render_template('cv/laporan.html', status=hasil)
 
 @blueprint.route('/hasil/', methods=['GET', 'POST'])
 @login_required
@@ -44,6 +47,7 @@ def hasil():
         db.session.commit()
         flash("Berhasil dihapus")
         return redirect(f'/hasil/{email}')
+        
 
 # @blueprint.route('/video')
 # def video():
