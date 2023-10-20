@@ -46,14 +46,16 @@ Komputer {% endblock %}
                         <thead>
                           <tr>
                             <th>Tanggal</th>
-                            <th>Status</th>
+                            <th>Skor</th>
+                            <th>Risiko</th>
                           </tr>
                         </thead>
                         <tbody>
-                          {% for st in skor %}
+                          {% for sk in skor %}
                           <tr>
-                            <td>{{ st.tanggal }}</td>
-                            <td>{{ st.status }}</td>
+                            <td>{{ sk.tanggal }}</td>
+                            <td>{{ sk.skor }}</td>
+                            <td>{{ sk.risiko }}</td>
                           </tr>
                           {% endfor %}
                         </tbody>
