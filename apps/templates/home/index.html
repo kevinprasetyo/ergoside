@@ -9,13 +9,29 @@
     <div class="pcoded-content">
       <div class="pcoded-inner-content">
         <!-- [ breadcrumb ] start -->
-
+        {% for message in get_flashed_messages() %}
+        <div
+          class="alert alert-success alert-dismissible fade show"
+          role="alert"
+        >
+          {{ message }}
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endfor %}
         <!-- [ breadcrumb ] end -->
         <div class="main-body">
           <div class="page-wrapper">
             <!-- [ Main Content ] start -->
             <div class="row">
               <!-- [ statistics year chart ] start -->
+
               <div class="col-xl-4 col-md-6">
                 <div class="card card-event">
                   <div class="card-block">
@@ -50,7 +66,7 @@
                     </div>
                   </div>
 
-                  <div class="card-block">
+                  <div class="card-block border-bottom">
                     <div class="row d-flex align-items-center">
                       <div class="col-auto">
                         <i class="feather icon-video f-30 text-c-red"></i>
@@ -62,6 +78,26 @@
                         <span class="d-block text-uppercase"
                           >Estimasi model tubuh menggunakan kamera melalui
                           penerapan Computer Vision</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-block border-bottom">
+                    <div class="row d-flex align-items-center">
+                      <div class="col-auto">
+                        <i
+                          class="feather icon-check-circle f-30 text-c-blue"
+                        ></i>
+                      </div>
+                      <div class="col">
+                        <a href="#">
+                          <h3 class="f-w-300">
+                            Asesmen oleh asesor
+                          </h3>
+                        </a>
+                        <span class="d-block text-uppercase"
+                          >Undang asesor atau upload link video untuk asesmen
+                          yang akurat</span
                         >
                       </div>
                     </div>

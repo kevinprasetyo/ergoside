@@ -2,7 +2,7 @@ from apps.home import blueprint
 from flask import render_template, request, flash, redirect
 from flask_login import login_required, current_user
 from jinja2 import TemplateNotFound
-from apps.home.models import Profile, Hasil
+from apps.home.models import Profile, Hasil, Observasi
 from apps.authentication.models import Users
 from apps import db
 
@@ -57,6 +57,20 @@ def hapusakun(username):
     except:
         return render_template('home/profile.html', segment='profile')
 
+@blueprint.route('/observasi', methods=['GET', 'POST'])
+@login_required
+def observasi():
+    if request.method == 'POST':
+        perusahaan = request.form.get('perusahaan')
+        nama = request.form.get('nama')
+        email = request.form.get('email')
+        alamat = request.form.get('alamat')
+
+        observasi = Observasi(perusahaan=perusahaan, nama=nama, email=email, alamat=alamat)
+        db.session.add(observasi)
+        db.session.commit()
+        flash("Berhasil tersimpan. Silahkan tunggu hasil email dari kami")
+        return render_template('home/index.html', segment='index')
 
 @blueprint.route('/gotrak/lihat', methods=['GET', 'POST'])
 @login_required

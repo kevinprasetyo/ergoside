@@ -1,0 +1,271 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Asesmen oleh asesor {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <!-- [ breadcrumb ] start -->
+                <div class="page-header">
+                    <div class="page-block">
+                        <div class="row align-items-center">
+                            <div class="col-md-12">
+                                <div class="page-header-title">
+                                    <h5 class="m-b-10">Asesmen berbasis asesmen asesor</h5>
+                                </div>
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="javascript:">Link Video</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- [ breadcrumb ] end -->
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ Main Content ] start -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <form role="form" method="post" action="/observasi">
+
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Isi identitas pekerjaan</h5>
+                                        </div>
+
+                                        <div class="card-body">
+                                            <h5>Informasi Pekerjaan</h5>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Perusahaan</label>
+                                                        <input type="text" class="form-control" name="perusahaan"
+                                                            id="perusahaan" placeholder="Perusahaan (optional)">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Nama</label>
+                                                        <input type="text" class="form-control" name="nama" id="nama"
+                                                            placeholder="Nama (opsional)">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+
+                                                    <div class="form-group">
+                                                        <label>Upload Link Video (Youtube / Google Drive)</label>
+                                                        <input type="text" class="form-control" name="alamat"
+                                                            id="alamat" placeholder="Link">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Email</label>
+                                                        <input type="text" class="form-control" name="email" id="email"
+                                                            {% if current_user.email %} readonly
+                                                            value="{{ current_user.email }}" {% endif %}>
+                                                    </div>
+                                                </div>
+
+
+
+
+
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+
+                                            </div>
+
+                                        </div>
+                                       
+                                </form>
+                            </div>
+                            <!-- Input group -->
+
+
+                        </div>
+                    </div>
+                    <!-- [ Main Content ] end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+<!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+<script>
+    function bagian1() {
+        // Get the checkbox
+        var checkBox = document.getElementById("leher");
+        // Get the output text
+        var text = document.getElementById("output1");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true) {
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }
+    function bagian2() {
+        // Get the checkbox
+        var checkBox = document.getElementById("bahu");
+        // Get the output text
+        var text = document.getElementById("output2");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true) {
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }
+
+    function bagian3() {
+        // Get the checkbox
+        var checkBox = document.getElementById("pa");
+        // Get the output text
+        var text = document.getElementById("output3");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true) {
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }
+    function bagian4() {
+        // Get the checkbox
+        var checkBox = document.getElementById("siku");
+        // Get the output text
+        var text = document.getElementById("output4");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true) {
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }
+    function bagian5() {
+        // Get the checkbox
+        var checkBox = document.getElementById("pb");
+        // Get the output text
+        var text = document.getElementById("output5");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true) {
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }
+    function bagian6() {
+        // Get the checkbox
+        var checkBox = document.getElementById("lengan");
+        // Get the output text
+        var text = document.getElementById("output6");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true) {
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }
+    function bagian7() {
+        // Get the checkbox
+        var checkBox = document.getElementById("tangan");
+        // Get the output text
+        var text = document.getElementById("output7");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true) {
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }
+    function bagian8() {
+        // Get the checkbox
+        var checkBox = document.getElementById("pinggul");
+        // Get the output text
+        var text = document.getElementById("output8");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true) {
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }
+    function bagian9() {
+        // Get the checkbox
+        var checkBox = document.getElementById("paha");
+        // Get the output text
+        var text = document.getElementById("output9");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true) {
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }
+    function bagian10() {
+        // Get the checkbox
+        var checkBox = document.getElementById("lutut");
+        // Get the output text
+        var text = document.getElementById("output10");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true) {
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }
+    function bagian11() {
+        // Get the checkbox
+        var checkBox = document.getElementById("betis");
+        // Get the output text
+        var text = document.getElementById("output11");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true) {
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }
+    function bagian12() {
+        // Get the checkbox
+        var checkBox = document.getElementById("kaki");
+        // Get the output text
+        var text = document.getElementById("output12");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true) {
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }
+</script>
+{% endblock javascripts %}

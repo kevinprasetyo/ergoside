@@ -10,6 +10,12 @@ class Profile(db.Model):
     nama = db.Column(db.Text, nullable=True)
     pekerjaan = db.Column(db.Text, nullable=True)
 
+class Observasi(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    perusahaan = db.Column(db.Text, nullable=True)
+    nama = db.Column(db.Text, nullable=True)
+    email = db.Column(db.Text, nullable=False)
+    alamat = db.Column(db.Text, nullable=True)
 
 class Hasil(db.Model):
     id = db.Column(db.Integer, primary_key=True)
