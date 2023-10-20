@@ -26,6 +26,7 @@ from apps.cv.models import Cv
 def laporan():
     if "skor" in request.args:
         skor = request.args.get('skor')
+        skor = int(skor)
         if skor == 0:
             risiko = "rendah"
         elif skor == 1:
@@ -36,9 +37,10 @@ def laporan():
         db.session.add(cv)
         db.session.commit()
         flash("Berhasil tersimpan")
+        cv = Cv.query.all()
         return render_template('cv/laporan.html', segment='laporan', cv=cv)
     else:
-        cv = Cv.query.all()
+        cv = Cv.query.all().order_by(Cv.id.desc())
         return render_template('cv/laporan.html', segment='laporan', cv=cv)
 
     

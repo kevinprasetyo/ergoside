@@ -51,11 +51,11 @@ Komputer {% endblock %}
                           </tr>
                         </thead>
                         <tbody>
-                          {% for sk in skor %}
+                          {% for c in cv %}
                           <tr>
-                            <td>{{ sk.tanggal }}</td>
-                            <td>{{ sk.skor }}</td>
-                            <td>{{ sk.risiko }}</td>
+                            <td>{{ c.tanggal }}</td>
+                            <td>{{ c.skor }}</td>
+                            <td>{{ c.risiko }}</td>
                           </tr>
                           {% endfor %}
                         </tbody>
