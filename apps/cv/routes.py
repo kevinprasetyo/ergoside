@@ -24,31 +24,24 @@ from apps.cv.models import Cv
 
 @blueprint.route('/laporan', methods=['GET', 'POST'])
 def laporan():
-    if "status" in request.args:
-        status = request.args.get('status')
-        kirim = Cv(status=status)
-        db.session.add(kirim)
+    if "skor" in request.args:
+        skor = request.args.get('skor')
+        if skor == 0:
+            risiko = "rendah"
+        elif skor == 1:
+            risiko = "sedang"
+        else:
+            risiko = "tinggi"
+        cv = Cv(skor=skor,risiko=risiko)
+        db.session.add(cv)
         db.session.commit()
         flash("Berhasil tersimpan")
-        return render_template('cv/laporan.html', status=status)
+        return render_template('cv/laporan.html', segment='laporan', cv=cv)
     else:
-        status = Cv.query.order_by(Cv.id.desc()).first()
-        hasil = status.status
-        return render_template('cv/laporan.html', status=hasil)
+        cv = Cv.query.all()
+        return render_template('cv/laporan.html', segment='laporan', cv=cv)
 
-@blueprint.route('/hasil/', methods=['GET', 'POST'])
-@login_required
-def hasil():
-    if "hapus" in request.args:
-        id = request.args.get('hapus')
-        hasil = Hasil.query.filter_by(id=id).one()
-        email = hasil.email
-        db.session.delete(hasil)
-        db.session.commit()
-        flash("Berhasil dihapus")
-        return redirect(f'/hasil/{email}')
-        
-
+    
 # @blueprint.route('/video')
 # def video():
 #     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
